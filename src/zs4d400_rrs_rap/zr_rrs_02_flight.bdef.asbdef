@@ -1,0 +1,55 @@
+managed implementation in class ZBP_R_RRS_02_FLIGHT unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_RRS_02_FLIGHT alias ZrRrs02Flight
+persistent table ZRRS_02_FLIGHT
+extensible
+draft table ZRRS_02_FLIGHT_D
+etag master LocalLastChangedAt
+lock master total etag LocalChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LocalChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZRRS_02_FLIGHT corresponding extensible
+  {
+    UUID = uuid;
+    CarrierID = carrier_id;
+    ConnectionID = connection_id;
+    FlightDate = flight_date;
+    Price = price;
+    CurrencyCode = currency_code;
+    PlaneTypeID = plane_type_id;
+    SeatsMax = seats_max;
+    SeatsOccupied = seats_occupied;
+    LocalCreatedBy = local_created_by;
+    LocalCreatedAt = local_created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LocalChangedAt = local_changed_at;
+  }
+
+  validation validatePrice on save {create; update; }
+
+}

@@ -1,0 +1,133 @@
+*"* use this source file for the definition and implementation of
+*"* local helper classes, interface definitions and type
+*"* declarations
+
+CLASS lcl_connection DEFINITION CREATE PUBLIC.
+
+  PUBLIC SECTION.
+    CLASS-DATA conn_counter TYPE i READ-ONLY.
+    CLASS-METHODS class_constructor.
+
+    METHODS:
+      "! Constructor de instancia
+      "! @parameter i_carrier_id | Aerolínea
+      "! @parameter i_connection_id | Conexión
+      "! @raising cx_abap_invalid_value | Excepción (valores obligatorios)
+      constructor
+        IMPORTING
+          i_carrier_id      TYPE /dmo/carrier_id
+          i_connection_id   TYPE /dmo/connection_id
+        RAISING
+          cx_abap_invalid_value,
+      get_carrier_id RETURNING VALUE(r_result) TYPE /dmo/carrier_id,
+      set_carrier_id IMPORTING i_carrier_id TYPE /dmo/carrier_id,
+      get_connection_id RETURNING VALUE(r_result) TYPE /dmo/connection_id,
+      set_connection_id IMPORTING i_connection_id TYPE /dmo/connection_id,
+      get_airport_from_id RETURNING VALUE(r_result) TYPE /dmo/airport_from_id,
+      set_airport_from_id IMPORTING i_airport_from_id TYPE /dmo/airport_from_id,
+      get_airport_to_id RETURNING VALUE(r_result) TYPE /dmo/airport_to_id,
+      set_airport_to_id IMPORTING i_airport_to_id TYPE /dmo/airport_to_id.
+
+    "! Functional Method (return one object{data, ref to data, ref to obj})
+    "! @parameter r_output | return data
+    METHODS get_output
+      RETURNING VALUE(r_output) TYPE string_table.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+
+    DATA carrier_id TYPE /dmo/carrier_id.
+    DATA connection_id TYPE /dmo/connection_id.
+
+    DATA airport_from_id TYPE /dmo/airport_from_id.
+    DATA airport_to_id TYPE /dmo/airport_to_id.
+
+    DATA carrier_name TYPE /dmo/carrier_name.
+
+ENDCLASS.
+
+CLASS lcl_connection IMPLEMENTATION.
+
+  METHOD class_constructor.
+
+  ENDMETHOD.
+
+  METHOD constructor.
+    IF i_carrier_id IS INITIAL
+    OR i_connection_id IS INITIAL.
+      RAISE EXCEPTION TYPE cx_abap_invalid_value.
+    ENDIF.
+
+*    SELECT SINGLE
+*      FROM /dmo/connection
+*      FIELDS
+*        carrier_id,
+*        connection_id,
+*        airport_from_id,
+*        airport_to_id
+*       WHERE carrier_id = @i_carrier_id
+*         AND connection_id = @i_connection_id
+*       INTO ( @carrier_id, @connection_id, @airport_from_id, @airport_to_id ).
+
+    me->carrier_id    = i_carrier_id.
+    me->connection_id = i_connection_id.
+
+    SELECT SINGLE
+      FROM /dmo/i_connection
+    FIELDS DepartureAirport, DestinationAirport, \_Airline-Name
+     WHERE AirlineID = @carrier_id
+       AND ConnectionID = @connection_id
+      INTO ( @airport_from_id, @airport_to_id, @carrier_name ).
+
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE cx_abap_invalid_value.
+    ENDIF.
+
+    me->conn_counter = me->conn_counter + 1.
+
+  ENDMETHOD.
+
+  METHOD get_carrier_id.
+    r_result = me->carrier_id.
+  ENDMETHOD.
+
+  METHOD set_carrier_id.
+    me->carrier_id = i_carrier_id.
+  ENDMETHOD.
+
+  METHOD get_connection_id.
+    r_result = me->connection_id.
+  ENDMETHOD.
+
+  METHOD set_connection_id.
+    me->connection_id = i_connection_id.
+  ENDMETHOD.
+
+  METHOD get_airport_from_id.
+    r_result = me->airport_from_id.
+  ENDMETHOD.
+
+  METHOD set_airport_from_id.
+    me->airport_from_id = i_airport_from_id.
+  ENDMETHOD.
+
+  METHOD get_airport_to_id.
+    r_result = me->airport_to_id.
+  ENDMETHOD.
+
+  METHOD set_airport_to_id.
+    me->airport_to_id = i_airport_to_id.
+  ENDMETHOD.
+
+  METHOD get_output.
+    APPEND |---------------------------------| TO r_output.
+    APPEND |Carrier:      { carrier_id    }|   TO r_output.
+    APPEND |Connection:   { connection_id }|   TO r_output.
+    APPEND |Airport from: { airport_from_id }| TO r_output.
+    APPEND |Airport to:   { airport_to_id }|   TO r_output.
+    APPEND |Carrier:      { carrier_id } - { carrier_name }| TO r_output.
+
+  ENDMETHOD.
+
+ENDCLASS.

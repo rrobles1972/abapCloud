@@ -1,0 +1,18 @@
+interface;
+use draft;
+extensible;
+
+define behavior for ZI_RRS_01_GROCERY alias Grocery
+{
+  use create;
+  use update;
+  use delete;
+
+  use action checkExpirationDate;
+
+  use action Activate;
+  use action Discard;
+  use action Edit;
+  use action Resume;
+  use action Prepare;
+}
