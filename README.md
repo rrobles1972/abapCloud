@@ -5,7 +5,7 @@
 C_ABAPD_2507 - SAP Certified Associate - Back-End Developer - ABAP Cloud
 
 --------------------------------------------
-Learning Journey
+Learning Journey:
 Acquiring Core ABAP Skills
 
 Prerequisites:
