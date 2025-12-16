@@ -15,3 +15,8 @@ S4D100 - Learn the Basics of ABAP Programming on SAP BTP
 Mandatory:
 COURSE
 S4D400 - Learning Basic ABAP Programming
+
+Mandatory:
+COURSE
+S4D401 - Deepening Your ABAP Programming Knowledge
+(In progress)
