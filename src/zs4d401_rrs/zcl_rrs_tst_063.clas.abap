@@ -1,0 +1,36 @@
+CLASS zcl_rrs_tst_063 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_rrs_tst_063 IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " ITAB - Field Symbols for Access to Internal Tables
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+* Execute this class using Profile As->abap Application
+* In the analysis, look at the comparative runtimes of
+* the methods loop_work_area( ) and loop_field_symbol( )
+
+
+    DATA(flights) = NEW lcl_demo( ).
+
+
+    flights->use_work_area( ).
+    flights->use_field_symbol( ).
+    out->write( 'Done' ).
+
+  ENDMETHOD.
+ENDCLASS.
