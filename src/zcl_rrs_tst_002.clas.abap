@@ -1,27 +1,13 @@
-CLASS zcl_rrs_tst_002 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_RRS_TST_002 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-    INTERFACES if_oo_adt_classrun .
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
 CLASS ZCL_RRS_TST_002 IMPLEMENTATION.
-
-
-  METHOD if_oo_adt_classrun~main.
-    DATA: lv_full_name TYPE string VALUE 'Stan Wilson',
-          lv_first_name TYPE string,
-          lv_last_name TYPE string.
-
-    SPLIT lv_full_name AT ' ' INTO lv_first_name lv_last_name.
-
-    out->write( |user { lv_first_name }| ).
-  ENDMETHOD.
 ENDCLASS.

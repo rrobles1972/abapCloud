@@ -1,4 +1,4 @@
-CLASS zcl_rrs_tst_063 DEFINITION
+CLASS zcl_rrs_tst_062 DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_rrs_tst_063 IMPLEMENTATION.
+CLASS zcl_rrs_tst_062 IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

@@ -1,20 +1,13 @@
-CLASS zcl_rrs_tst_016 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_RRS_TST_016 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-    INTERFACES if_oo_adt_classrun .
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
 CLASS ZCL_RRS_TST_016 IMPLEMENTATION.
-
-
-  METHOD if_oo_adt_classrun~main.
-  ENDMETHOD.
 ENDCLASS.

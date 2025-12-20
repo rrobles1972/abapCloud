@@ -1,41 +1,13 @@
-CLASS zcl_rrs_tst_054 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_RRS_TST_054 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-    INTERFACES if_oo_adt_classrun .
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_rrs_tst_054 IMPLEMENTATION.
-
-
-  METHOD if_oo_adt_classrun~main.
-
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " ABAP SQL - ORDER BY
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    SELECT FROM /dmo/flight
-         FIELDS carrier_id,
-                connection_id,
-                flight_date,
-                seats_max - seats_occupied AS seats
-          WHERE carrier_id     = 'AA'
-            AND plane_type_id  = 'A320-200'
-       ORDER BY seats_max - seats_occupied DESCENDING,
-                flight_date                ASCENDING
-           INTO TABLE @DATA(result).
-
-    out->write(
-      EXPORTING
-        data   = result
-        name   = 'RESULT'
-    ).
-
-  ENDMETHOD.
+CLASS ZCL_RRS_TST_054 IMPLEMENTATION.
 ENDCLASS.
