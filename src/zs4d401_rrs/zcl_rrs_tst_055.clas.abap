@@ -1,13 +1,39 @@
-class ZCL_RRS_TST_055 definition
-  public
-  create private .
+CLASS zcl_rrs_tst_055 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_RRS_TST_055 IMPLEMENTATION.
+CLASS zcl_rrs_tst_055 IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " ABAP SQL - SELECT DISTINCT
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    SELECT FROM /dmo/connection
+    FIELDS
+       DISTINCT
+                airport_from_id,
+                distance_unit
+
+       ORDER BY airport_from_id
+     INTO TABLE @DATA(result).
+
+    out->write(
+      EXPORTING
+        data   = result
+        name   = 'RESULT'
+    ).
+
+  ENDMETHOD.
 ENDCLASS.

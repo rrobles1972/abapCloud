@@ -1,13 +1,27 @@
-class ZCL_RRS_TST_041 definition
-  public
-  create private .
+CLASS zcl_rrs_tst_041 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_RRS_TST_041 IMPLEMENTATION.
+CLASS zcl_rrs_tst_041 IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "  Create and Use Text Symbols
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    out->write( 'Hello World!'(001) ).
+    out->write( text-hau ).
+
+  ENDMETHOD.
 ENDCLASS.

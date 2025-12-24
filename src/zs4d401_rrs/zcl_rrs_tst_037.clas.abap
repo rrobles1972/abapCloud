@@ -1,13 +1,44 @@
-class ZCL_RRS_TST_037 definition
-  public
-  create private .
+CLASS zcl_rrs_tst_037 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_RRS_TST_037 IMPLEMENTATION.
+CLASS zcl_rrs_tst_037 IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Unexpected Results of Assgnments
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    DATA var_date TYPE d.
+    DATA var_int TYPE i.
+    DATA var_string TYPE string.
+    DATA var_n TYPE n LENGTH 4.
+
+    var_date = cl_abap_context_info=>get_system_date( ).
+    var_int = var_date.
+
+    out->write( |Date as date| ).
+    out->write( var_date ).
+    out->write( |Date assigned to integer| ).
+    out->write( var_int ).
+
+    var_string = `R2D2`.
+    var_n = var_string.
+
+    out->write( |String| ).
+    out->write( var_string ).
+    out->write( |String assigned to type N| ).
+    out->write( var_n ).
+  ENDMETHOD.
 ENDCLASS.

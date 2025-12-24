@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_RRS_TST_051</CLSNAME>
+    <CLSNAME>ZCL_RRS_TST_065</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>ABAP SQL - String Processing</DESCRIPT>
+    <DESCRIPT>Authority-Check Statement</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

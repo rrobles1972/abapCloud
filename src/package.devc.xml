@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>S4D100+S4D400 by RRS</CTEXT>
+    <CTEXT>S4D100+S4D400[+S4D401*in progress] by RRS</CTEXT>
     <LANGUAGE>E</LANGUAGE>
     <MASTERLANG>E</MASTERLANG>
    </DEVC>

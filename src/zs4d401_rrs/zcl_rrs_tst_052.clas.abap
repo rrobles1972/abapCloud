@@ -1,13 +1,48 @@
-class ZCL_RRS_TST_052 definition
-  public
-  create private .
+CLASS zcl_rrs_tst_052 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_RRS_TST_052 IMPLEMENTATION.
+CLASS zcl_rrs_tst_052 IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " ABAP SQL - Date processing
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    SELECT FROM /dmo/travel
+     FIELDS begin_date,
+            end_date,
+            is_valid( begin_date  )              AS valid,
+
+            add_days( begin_date, 7 )            AS add_7_days,
+            add_months(  begin_date, 3 )         AS add_3_months,
+            days_between( begin_date, end_date ) AS duration,
+
+            weekday(  begin_date  )              AS weekday,
+            extract_month(  begin_date )         AS month,
+            dayname(  begin_date )               AS day_name
+
+      WHERE customer_id = '000001'
+        AND days_between( begin_date, end_date ) > 10
+
+       INTO TABLE @DATA(result).
+
+    out->write(
+      EXPORTING
+        data   = result
+        name   = 'RESULT'
+    ).
+
+  ENDMETHOD.
 ENDCLASS.

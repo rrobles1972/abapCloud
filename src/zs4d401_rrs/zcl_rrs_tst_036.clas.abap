@@ -1,13 +1,41 @@
-class ZCL_RRS_TST_036 definition
-  public
-  create private .
+CLASS zcl_rrs_tst_036 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_RRS_TST_036 IMPLEMENTATION.
+CLASS zcl_rrs_tst_036 IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Truncating and Rounding
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    DATA long_char TYPE c LENGTH 10.
+    DATA short_char TYPE c LENGTH 5.
+
+
+    DATA result TYPE p LENGTH 3 DECIMALS 2.
+
+
+    long_char = 'ABCDEFGHIJ'.
+    short_char = long_char.
+
+
+    out->write( long_char ).
+    out->write( short_char ).
+
+
+    result = 1 / 8.
+    out->write( |1 / 8 is rounded to { result NUMBER = USER }| ).
+  ENDMETHOD.
 ENDCLASS.
