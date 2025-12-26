@@ -22,11 +22,15 @@ CLASS zcl_rrs_tst_067 IMPLEMENTATION.
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *    DATA lr_cargo_plane TYPE REF TO lcl_plane.
 *    DATA lr_passenger_plane TYPE REF TO lcl_plane.
+
+*    lr_cargo_plane = new lcl_cargo_plane( iv_manufacturer = 'ES_planes' iv_type = 'Water_Cargo' iv_cargo = 15 ).
+*    lr_passenger_plane = new lcl_passenger_plane( iv_manufacturer = 'FR_planes' iv_type = 'Jumbo343' iv_seats = 110 ).
+
     DATA lr_cargo_plane TYPE REF TO lcl_cargo_plane.
     DATA lr_passenger_plane TYPE REF TO lcl_passenger_plane.
 
-    lr_cargo_plane = new lcl_cargo_plane( iv_manufacturer = 'ES_planes' iv_type = 'Water_Cargo' iv_cargo = 15 ).
-    lr_passenger_plane = new lcl_passenger_plane( iv_manufacturer = 'FR_planes' iv_type = 'Jumbo343' iv_seats = 110 ).
+    lr_cargo_plane = new #( iv_manufacturer = 'ES_planes' iv_type = 'Water_Cargo' iv_cargo = 15 ).
+    lr_passenger_plane = new #( iv_manufacturer = 'FR_planes' iv_type = 'Jumbo343' iv_seats = 110 ).
 
     DATA(lt_cargo_att) = lr_cargo_plane->get_attributes( ).
     DATA(lt_passenger_att) = lr_passenger_plane->get_attributes( ).
