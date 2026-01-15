@@ -19,4 +19,3 @@ S4D400 - Learning Basic ABAP Programming
 Mandatory:
 COURSE
 S4D401 - Deepening Your ABAP Programming Knowledge
-(In progress)
