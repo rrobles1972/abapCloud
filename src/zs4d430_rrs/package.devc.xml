@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>S4D401 Deeping Your ABAP Programming Knowledge</CTEXT>
+    <CTEXT>S4D430 Data Models with Dictionary and Core Data Services</CTEXT>
     <LANGUAGE>E</LANGUAGE>
     <MASTERLANG>E</MASTERLANG>
    </DEVC>
