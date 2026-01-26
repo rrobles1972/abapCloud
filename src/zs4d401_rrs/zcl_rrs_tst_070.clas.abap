@@ -17,6 +17,10 @@ CLASS zcl_rrs_tst_070 IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " OOP - Interface Use
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
     DATA car_rental TYPE REF TO lcl_car_rental.
     DATA airline TYPE REF TO lcl_airline.
     DATA agency TYPE REF TO lcl_travel_agency.

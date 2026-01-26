@@ -37,7 +37,11 @@ CLASS lcl_car_Rental DEFINITION.
              value TYPE c LENGTH 20,
            END OF ts_info,
            tt_Info TYPE SORTED TABLE OF ts_info WITH UNIQUE KEY name.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+    METHODS constructor IMPORTING iv_name TYPE string
+                                  iv_contact_person TYPE string
+                                  iv_has_hgv TYPE boolean.
 
     METHODS get_information RETURNING VALUE(rt_details) TYPE tt_info.
 ENDCLASS.
@@ -73,5 +77,10 @@ CLASS lcl_car_rental IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD constructor.
+
+
+  ENDMETHOD.
 
 ENDCLASS.
