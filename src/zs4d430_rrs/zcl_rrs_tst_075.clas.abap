@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_rrs_tst_075 IMPLEMENTATION.
+CLASS ZCL_RRS_TST_075 IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -31,5 +31,4 @@ CLASS zcl_rrs_tst_075 IMPLEMENTATION.
                 data = result ).
 
   ENDMETHOD.
-
 ENDCLASS.

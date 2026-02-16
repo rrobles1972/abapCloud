@@ -12,7 +12,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_rrs_tst_068 IMPLEMENTATION.
+CLASS ZCL_RRS_TST_068 IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
