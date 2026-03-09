@@ -3,12 +3,10 @@
 {
 "FROM":
 [
-"ZRRS_EMPLOY"
+"ZRRS_DEPMENT"
 ],
 "ASSOCIATED":
-[
-"ZR_RRS_05_DEPMENT"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":

@@ -5,6 +5,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 define view entity ZR_RRS_04_EMPLOY
   as select from zrrs_employ
+  association [1..1] to ZR_RRS_05_DEPMENT as _Department on $projection.DepartmentId = _Department.Id
 {
   key employee_id             as EmployeeId,
       first_name              as FirstName,
@@ -20,5 +21,7 @@ define view entity ZR_RRS_04_EMPLOY
       created_at              as CreatedAt,
       local_last_changed_by   as LocalLastChangedBy,
       local_last_changed_at   as LocalLastChangedAt,
-      last_changed_at         as LastChangedAt
+      last_changed_at         as LastChangedAt,
+      
+      _Department
 }
