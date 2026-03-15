@@ -3,7 +3,8 @@
 {
 "FROM":
 [
-"ZR_RRS_04_EMPLOY"
+"ZR_RRS_04_EMPLOY",
+"ZR_RRS_05_DEPMENT"
 ],
 "ASSOCIATED":
 [],

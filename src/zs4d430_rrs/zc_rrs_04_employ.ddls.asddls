@@ -18,5 +18,6 @@ define view entity ZC_RRS_04_EMPLOY as select from ZR_RRS_04_EMPLOY
     CreatedAt,
     LocalLastChangedBy,
     LocalLastChangedAt,
-    LastChangedAt
+    LastChangedAt,
+    _Department.Description
 }
