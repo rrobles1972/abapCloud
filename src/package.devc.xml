@@ -3,9 +3,10 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>S4D100+S4D400+S4D401[+S4D430*in progress] by RRS</CTEXT>
+    <CTEXT>abapCloud by RRS</CTEXT>
     <LANGUAGE>E</LANGUAGE>
     <MASTERLANG>E</MASTERLANG>
+    <SRV_CHECK>X</SRV_CHECK>
    </DEVC>
   </asx:values>
  </asx:abap>
