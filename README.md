@@ -1,6 +1,7 @@
 # abapCloud
-"The package contains personal, independently developed solutions, and does not include the official course-provided solution files."
-C_ABAPD_2507 - SAP Certified Associate - Back-End Developer - ABAP Cloud
+"The package contains personal, independently developed solutions, and does not include the official course-provided solution files
+SAP Certified Associate
+Back-End Developer - ABAP Cloud
 Learning Journey: Acquiring Core ABAP Skills
 
 Prerequisites: COURSE
